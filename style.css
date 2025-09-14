@@ -1,51 +1,50 @@
 /* --- Impostazioni Generali --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #ffffff;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    height: 100vh;
-    overflow: hidden;
 }
 
 /* --- Intestazione Verde --- */
-/* Nel tuo style.css */
-.ptr--ptr {
-  z-index: 0; /* Assicura che l'icona di aggiornamento stia dietro all'header */
-}
-
 .ticket-header {
     background-color: #27b99b;
     color: white;
     padding: 7px 7px;
     display: flex;
     align-items: center;
-    text-align: center;
-    font-size: larger;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.back-arrow {
-    font-size: 60px;
-    font-weight: bold;
+/* Rendi il link bianco */
+.ticket-header a {
+    color: #ffffff;
+}
+
+/* Freccia Indietro (Forzato su bianco) */
+.ticket-header a .back-arrow-svg {
+    color: #ffffff;
+    stroke: #ffffff;
+    width: 28px;
+    height: 28px;
     margin-right: 16px;
 }
 
+/* --- Titolo dell'Intestazione --- */
 .ticket-header h2 {
     margin: 0;
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 400;
     line-height: 1.3;
     flex-grow: 1;
 }
 
+/* --- Puntini Menu --- */
 .menu-dots {
     font-size: 24px;
     font-weight: bold;
     margin-left: 16px;
 }
-
 
 /* --- Contenitore Video --- */
 .video-container {
@@ -73,11 +72,12 @@ body {
     width: auto;
 }
 
-.overlay-text .agency-name {
+/* Ho rimosso un duplicato di .overlay-text e .agency-name */
+.agency-name {
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    color: #3e3e3e;
+    color: #7c7c7c;
 }
 
 .overlay-text .ticket-type {
@@ -102,18 +102,9 @@ body {
     padding: 16px 0;
 }
 
-.qr-section {
-    padding: 0 24px;
-}
-
-/* MODIFICA: Aggiunto un piccolo spazio laterale */
-.details-list {
-    padding: 0 10px;
-}
-
-
 /* --- Sezione QR Code --- */
 .qr-section {
+    padding: 0 24px;
     text-align: center;
     margin-bottom: 16px;
 }
@@ -141,6 +132,7 @@ body {
 
 /* --- Lista Dettagli --- */
 .details-list {
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
 }
@@ -167,5 +159,46 @@ body {
     font-size: 14px;
     font-weight: 600;
     text-align: right;
+}
 
+/* --- ANIMAZIONE PULL-TO-REFRESH --- */
+#pull-to-refresh-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #009688;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Stato: Trascinato a metà */
+.pull-to-refresh-pull .spinner {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Stato: Rilasciato (in ricarica) */
+.pull-to-refresh-refresh .spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <script src="https://unpkg.com/pulltorefreshjs@0.1.22/dist/index.umd.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/pulltorefreshjs@0.1.22/dist/index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dettaglio Biglietto</title>
     <link rel="stylesheet" href="style.css">
-        <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#009688">
 </head>
 <body>
 
+    <div id="pull-to-refresh-container">
+        <div class="spinner"></div>
+    </div>
+
     <header class="ticket-header">
-    <svg class="back-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M15 18l-6-6 6-6"/>
-</svg>
-    <h2>Abbonamento annuale<br>studenti extraurbano</h2>
-    <span class="menu-dots">&#8942;</span>
-</header>
+        <a href="#" id="open-dropticket">
+            <svg class="back-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </a>
+        <h2>Abbonamento annuale<br>studenti extraurbano</h2>
+        <span class="menu-dots" id="edit-toggle">&#8942;</span>
+    </header>
 
     <section class="video-container">
         <video autoplay loop muted playsinline>
             <source src="anim.mp4" type="video/mp4">
             Il tuo browser non supporta i video.
         </video>
-
         <div class="overlay-text">
             <p class="agency-name">ARST</p>
             <p class="ticket-type">Abbonamento annuale studenti extraurbano</p>
         </div>
-
         <div class="remaining-time-overlay">
             <span>Rimanenti: 245 giorni 6 ore</span>
         </div>
@@ -47,27 +49,27 @@
         <section class="details-list">
             <div class="detail-row">
                 <span class="label">Codice</span>
-                <span class="value">T85136V9D</span>
+                <span class="value" id="ticket-code">T85136V9D</span>
             </div>
             <div class="detail-row">
                 <span class="label">Data di acquisto</span>
-                <span class="value">03/09/25</span>
+                <span class="value" id="purchase-date">03/09/25</span>
             </div>
             <div class="detail-row">
                 <span class="label">Nome</span>
-                <span class="value">Antonio</span>
+                <span class="value" id="user-name">Antonio</span>
             </div>
             <div class="detail-row">
                 <span class="label">Cognome</span>
-                <span class="value">Frau</span>
+                <span class="value" id="user-surname">Frau</span>
             </div>
             <div class="detail-row">
                 <span class="label">Tessera ARST</span>
-                <span class="value">9Z7AE5Z</span>
+                <span class="value" id="arst-card">9Z7AE5Z</span>
             </div>
             <div class="detail-row">
                 <span class="label">Città</span>
-                <span class="value">ATZARA - ORISTANO</span>
+                <span class="value" id="user-city">ATZARA - ORISTANO</span>
             </div>
             <div class="detail-row">
                 <span class="label">Convalida</span>
@@ -75,17 +77,103 @@
             </div>
         </section>
     </main>
-<script>
-  PullToRefresh.init({
-    mainElement: 'body', // A quale elemento si applica
-    onRefresh: function() { 
-      window.location.reload(); // Ricarica la pagina
-    },
-    // Testi in italiano (opzionale ma consigliato)
-    instructionsPullToRefresh: 'Trascina per aggiornare',
-    instructionsReleaseToRefresh: 'Rilascia per aggiornare',
-    instructionsRefreshing: 'Aggiornamento...'
-  });
-</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Logica del "pull-to-refresh"
+            const container = document.getElementById('pull-to-refresh-container');
+            const spinner = document.querySelector('.spinner');
+            let isPulling = false;
+            let startY = 0;
+            let currentY = 0;
+
+            document.addEventListener('touchstart', (e) => {
+                startY = e.touches[0].clientY;
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                currentY = e.touches[0].clientY;
+                const pullDistance = currentY - startY;
+
+                if (pullDistance > 0 && !isPulling && window.scrollY === 0) {
+                    isPulling = true;
+                    container.classList.add('pull-to-refresh-pull');
+                }
+
+                if (isPulling) {
+                    e.preventDefault();
+                    const height = Math.min(pullDistance / 2, 80);
+                    container.style.height = `${height}px`;
+                }
+            });
+
+            document.addEventListener('touchend', () => {
+                if (isPulling) {
+                    isPulling = false;
+                    container.style.height = '0';
+                    
+                    const pullThreshold = 50;
+                    const pullDistance = currentY - startY;
+
+                    if (pullDistance > pullThreshold) {
+                        container.classList.add('pull-to-refresh-refresh');
+                        window.location.reload();
+                    }
+                }
+            });
+
+            // Logica per l'apertura dell'app (se installata) con fallback
+            document.getElementById('open-dropticket').addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const appUrl = 'dropticket://';
+                const storeUrl = 'https://play.google.com/store/apps/details?id=com.atono.dropticket';
+
+                window.location.href = appUrl;
+
+                setTimeout(function() {
+                    window.location.href = storeUrl;
+                }, 500);
+            });
+        });
+
+        // Nuovo codice per l'editing
+        document.addEventListener('DOMContentLoaded', () => {
+            const editToggle = document.getElementById('edit-toggle');
+            const editableFields = [
+                document.getElementById('ticket-code'),
+                document.getElementById('purchase-date'),
+                document.getElementById('user-name'),
+                document.getElementById('user-surname'),
+                document.getElementById('arst-card'),
+                document.getElementById('user-city')
+            ];
+
+            let isEditing = false;
+
+            editToggle.addEventListener('click', () => {
+                isEditing = !isEditing;
+
+                editableFields.forEach(field => {
+                    if (field) { // Controlla che l'elemento esista
+                        field.contentEditable = isEditing;
+                        if (isEditing) {
+                            field.style.border = '1px solid #ccc';
+                            field.style.padding = '2px';
+                        } else {
+                            field.style.border = 'none';
+                            field.style.padding = '0';
+                        }
+                    }
+                });
+
+                if (isEditing) {
+                    editToggle.innerHTML = '&#10003;';
+                } else {
+                    editToggle.innerHTML = '&#8942;';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

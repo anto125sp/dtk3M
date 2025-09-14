@@ -2,7 +2,7 @@
   "name": "DropTicket",
   "short_name": "Biglietto",
   "start_url": ".",
-  "id": "/dtk3/",              // <-- AGGIUNGI QUESTA RIGA
+  "id": "/dtk3/",             
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#009688",
@@ -20,3 +20,4 @@
     }
   ]
 }
+

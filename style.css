@@ -10,6 +10,11 @@ body {
 }
 
 /* --- Intestazione Verde --- */
+/* Nel tuo style.css */
+.ptr--ptr {
+  z-index: 0; /* Assicura che l'icona di aggiornamento stia dietro all'header */
+}
+
 .ticket-header {
     background-color: #27b99b;
     color: white;
@@ -162,4 +167,5 @@ body {
     font-size: 14px;
     font-weight: 600;
     text-align: right;
+
 }

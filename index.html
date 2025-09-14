@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <script src="https://unpkg.com/pulltorefreshjs@0.1.22/dist/index.umd.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/pulltorefreshjs@0.1.22/dist/index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dettaglio Biglietto</title>
@@ -73,6 +75,17 @@
             </div>
         </section>
     </main>
-
+<script>
+  PullToRefresh.init({
+    mainElement: 'body', // A quale elemento si applica
+    onRefresh: function() { 
+      window.location.reload(); // Ricarica la pagina
+    },
+    // Testi in italiano (opzionale ma consigliato)
+    instructionsPullToRefresh: 'Trascina per aggiornare',
+    instructionsReleaseToRefresh: 'Rilascia per aggiornare',
+    instructionsRefreshing: 'Aggiornamento...'
+  });
+</script>
 </body>
 </html>

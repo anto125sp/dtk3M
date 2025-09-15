@@ -76,8 +76,8 @@ body {
 .agency-name {
     margin: 0;
     font-size: 16px;
-    font-weight: 600;
-    color: #7c7c7c;
+    font-weight: 400;
+    color: #4e4e4e;
 }
 
 .overlay-text .ticket-type {
@@ -124,9 +124,9 @@ body {
 }
 
 .date-range {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
+    font-size: 24px;
+    font-weight: 700;
+    color: #969696;
     margin: 0;
 }
 
@@ -156,8 +156,8 @@ body {
 
 .value {
     color: #000000;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 525;
     text-align: right;
 }
 
@@ -201,4 +201,5 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+
 }

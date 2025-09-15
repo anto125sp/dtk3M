@@ -91,7 +91,7 @@ body {
     position: absolute;
     bottom: 8px;
     right: 16px;
-    color: #000000;
+    color: #525252;
     font-size: 14px;
     text-shadow: none;
 }
@@ -203,6 +203,7 @@ body {
     100% { transform: rotate(360deg); }
 
 }
+
 
 
 

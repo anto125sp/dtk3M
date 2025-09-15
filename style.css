@@ -156,8 +156,8 @@ body {
 
 .value {
     color: #000000;
-    font-size: 16px;
-    font-weight: 440;
+    font-size: 17px;
+    font-weight: 470;
     text-align: right;
 }
 
@@ -203,6 +203,7 @@ body {
     100% { transform: rotate(360deg); }
 
 }
+
 
 
 

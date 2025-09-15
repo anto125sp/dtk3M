@@ -142,7 +142,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 13px 0;
-    border-bottom: 1px solid #a8a8a7;
+    border-bottom: 1px solid #b3b3b3;
 }
 
 .detail-row:last-child {
@@ -203,6 +203,7 @@ body {
     100% { transform: rotate(360deg); }
 
 }
+
 
 
 

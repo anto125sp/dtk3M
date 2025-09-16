@@ -113,7 +113,6 @@ body {
     width: 140px;
     height: 140px;
     margin: 0 auto 12px auto;
-    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -203,6 +202,7 @@ body {
     100% { transform: rotate(360deg); }
 
 }
+
 
 
 

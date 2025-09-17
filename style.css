@@ -43,10 +43,10 @@ body {
 .menu-dots {
     font-size: 24px;
     font-weight: bold;
-    margin-left: 16px;
+    margin-left: 10px;
 }
 
-/* --- Contenitore Video --- */
+/* --- Contenitore Video -- */
 .video-container {
     position: relative;
     width: 100%;
@@ -123,10 +123,10 @@ body {
 }
 
 .date-range {
-    font-size: 22px;
-    font-weight: 700;
-    color: #969696;
-    margin-top: 20px; /* Sostituisci "20px" con il valore che preferisci */
+    font-size: 18px;
+    font-weight: 625;
+    color: #7f7f7f;
+    margin-top: 40px; /* Sostituisci "20px" con il valore che preferisci */
 }
 
 /* --- Lista Dettagli --- */
@@ -154,9 +154,9 @@ body {
 }
 
 .value {
-    color: #4d4d4d;
+    color: #333333;
     font-size: 17px;
-    font-weight: 430;
+    font-weight: 350;
     text-align: right;
 }
 

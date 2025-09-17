@@ -114,14 +114,14 @@ body {
 .qr-section {
     padding: 0 24px;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .qr-placeholder {
     width: 130px;
     margin-left: 130px;
     margin-bottom: 0px;
-    margin-top: 40px;
+    margin-top: 25px;
     height: 130px;
     overflow: hidden;
 }
@@ -133,7 +133,7 @@ body {
 }
 
 .date-range {
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 625;
     color: #7f7f7f;
     margin-top: 40px; /* Sostituisci "20px" con il valore che preferisci */
@@ -150,7 +150,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 9px 0;
     border-bottom: 1px solid #b3b3b3;
 }
 
@@ -212,6 +212,7 @@ body {
     100% { transform: rotate(360deg); }
 
 }
+
 
 
 

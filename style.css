@@ -104,7 +104,6 @@ body {
     text-shadow: none;
 }
 
-
 /* --- Corpo del Biglietto --- */
 .ticket-body {
     padding: 16px 0;
@@ -170,49 +169,6 @@ body {
     text-align: right;
 }
 
-/* --- ANIMAZIONE PULL-TO-REFRESH --- */
-#pull-to-refresh-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: height 0.3s ease-out;
-    z-index: 1000;
-}
-
-.spinner {
-    width: 30px;
-    height: 30px;
-    border: 3px solid #009688;
-    border-top: 3px solid transparent;
-    border-radius: 50%;
-    transform: translateY(-50px);
-    opacity: 0;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-}
-
-/* Stato: Trascinato a metà */
-.pull-to-refresh-pull .spinner {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-/* Stato: Rilasciato (in ricarica) */
-.pull-to-refresh-refresh .spinner {
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-
-}
-
 /* --- ANIMAZIONE DI CARICAMENTO --- */
 #loading-animation-container {
     position: fixed;
@@ -228,20 +184,3 @@ body {
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

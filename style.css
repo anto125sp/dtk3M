@@ -123,7 +123,7 @@ body {
 }
 
 .date-range {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 625;
     color: #7f7f7f;
     margin-top: 40px; /* Sostituisci "20px" con il valore che preferisci */
@@ -156,7 +156,7 @@ body {
 .value {
     color: #333333;
     font-size: 17px;
-    font-weight: 350;
+    font-weight: 375;
     text-align: right;
 }
 

@@ -11,7 +11,7 @@ body {
 .ticket-header {
     background-color: #27b99b;
     color: white;
-    padding: 7px 7px;
+    padding: 3px 3px;
     display: flex;
     align-items: center;
 }
@@ -25,9 +25,13 @@ body {
 .ticket-header a .back-arrow-svg {
     color: #ffffff;
     stroke: #ffffff;
-    width: 28px;
-    height: 28px;
-    margin-right: 16px;
+    font-weight: lighter;
+    width: 22px;
+    height: 22px;
+    margin-right: 19px;
+    margin-left: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 /* --- Titolo dell'Intestazione --- */
@@ -41,9 +45,12 @@ body {
 
 /* --- Puntini Menu --- */
 .menu-dots {
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: 10px;
+    font-size: 28px;
+    font-weight:lighter;
+    margin-left: 5px;
+    margin-right: 16px;
+    margin-top: 0px;
+    margin-bottom: 9px;
 }
 
 /* --- Contenitore Video -- */
@@ -64,8 +71,9 @@ body {
 /* --- Testo Sovrapposto --- */
 .overlay-text {
     position: absolute;
-    top: 30%;
-    left: 55px;
+    font-size: 60px;
+    top: 25%;
+    left: 35px;
     transform: translateY(-50%);
     color: #3e3e3e;
     text-shadow: none;
@@ -92,7 +100,7 @@ body {
     bottom: 8px;
     right: 16px;
     color: #525252;
-    font-size: 14px;
+    font-size: 15px;
     text-shadow: none;
 }
 
@@ -110,9 +118,11 @@ body {
 }
 
 .qr-placeholder {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 12px auto;
+    width: 125px;
+    margin-left: 130px;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    height: 125px;
     overflow: hidden;
 }
 
@@ -155,8 +165,8 @@ body {
 
 .value {
     color: #333333;
-    font-size: 17px;
-    font-weight: 375;
+    font-size: 18px;
+    font-weight: 400;
     text-align: right;
 }
 

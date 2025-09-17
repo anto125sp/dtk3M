@@ -160,7 +160,7 @@ body {
 
 .label {
     color: #757575;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .value {
@@ -212,6 +212,7 @@ body {
     100% { transform: rotate(360deg); }
 
 }
+
 
 
 
